@@ -8,4 +8,4 @@ import { BookController } from './controllers/book.controller';
   providers: [],
   exports: [],
 })
-export class InfraestructureModule {}
+export class InfrastructureModule {}

@@ -1,6 +1,6 @@
 import { Book } from '../models/book';
 
 export interface BookRepositoryPort {
-  createAuthor(book: Book): Promise<Book>;
-  findyAuthorById(bookId: number): Promise<Book>;
+  createBook(book: Book): Promise<Book>;
+  findyBookById(bookId: number): Promise<Book>;
 }

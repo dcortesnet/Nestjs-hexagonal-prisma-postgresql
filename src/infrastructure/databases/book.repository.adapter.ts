@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Book } from 'src/domain/models/book';
-import { BookRepositoryPort } from 'src/domain/repositories/book.repository.port';
+import { Book } from '../../domain/models/book';
+import { BookRepositoryPort } from '../../domain/repositories/book.repository.port';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()

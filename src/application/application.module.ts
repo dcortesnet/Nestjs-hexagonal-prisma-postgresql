@@ -3,7 +3,9 @@ import { CreateAuthorUseCase } from './usecases/create-author.usecase';
 import { AuthorRepositoryAdapter } from '../infrastructure/databases/author.repository.adapter';
 import { PrismaClient } from '@prisma/client';
 import { CreateBookUseCase } from './usecases/create-book.usecase';
-import { BookRepositoryAdapter } from 'src/infrastructure/databases/book.repository.adapter';
+import { BookRepositoryAdapter } from '../infrastructure/databases/book.repository.adapter';
+import { FindAuthorByIdUseCase } from './usecases/find-author-by-id.usecase';
+import { FindBookByIdUseCase } from './usecases/find-book-by-id.usecase';
 
 @Module({
   imports: [],
@@ -14,6 +16,8 @@ import { BookRepositoryAdapter } from 'src/infrastructure/databases/book.reposit
     },
     CreateAuthorUseCase,
     CreateBookUseCase,
+    FindAuthorByIdUseCase,
+    FindBookByIdUseCase,
     {
       provide: 'AuthorRepository',
       useClass: AuthorRepositoryAdapter,
@@ -23,6 +27,11 @@ import { BookRepositoryAdapter } from 'src/infrastructure/databases/book.reposit
       useClass: BookRepositoryAdapter,
     },
   ],
-  exports: [],
+  exports: [
+    CreateAuthorUseCase,
+    CreateBookUseCase,
+    FindAuthorByIdUseCase,
+    FindBookByIdUseCase,
+  ],
 })
 export class ApplicationModule {}

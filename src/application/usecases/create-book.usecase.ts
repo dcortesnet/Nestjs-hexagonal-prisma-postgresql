@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Book } from '@prisma/client';
-import { BookRepositoryPort } from 'src/domain/repositories/book.repository.port';
+import { Book } from '../../domain/models/book';
+import { BookRepositoryPort } from '../../domain/repositories/book.repository.port';
 
 @Injectable()
 export class CreateBookUseCase {

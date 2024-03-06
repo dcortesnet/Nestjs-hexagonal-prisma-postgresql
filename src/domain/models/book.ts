@@ -1,8 +1,8 @@
 export interface Book {
-  id: number;
+  id?: number;
   isbn: string;
   name: string;
   cantPages: number;
-  createdAt: Date;
+  createdAt?: Date;
   authorId: number;
 }

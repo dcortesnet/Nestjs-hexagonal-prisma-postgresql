@@ -4,6 +4,7 @@ import {
   Get,
   HttpStatus,
   Param,
+  ParseIntPipe,
   Post,
   Res,
 } from '@nestjs/common';
@@ -28,7 +29,10 @@ export class AuthorController {
   }
 
   @Get(':id')
-  async findAuthorById(@Res() request, @Param('id') id: number): Promise<any> {
+  async findAuthorById(
+    @Res() request,
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<any> {
     const author = await this.findAuthorByIdUseCase.execute(id);
     return request.status(HttpStatus.OK).json(author);
   }

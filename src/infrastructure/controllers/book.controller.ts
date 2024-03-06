@@ -4,6 +4,7 @@ import {
   Get,
   HttpStatus,
   Param,
+  ParseIntPipe,
   Post,
   Res,
 } from '@nestjs/common';
@@ -11,7 +12,7 @@ import { CreateBookUseCase } from '../../application/usecases/create-book.usecas
 import { FindBookByIdUseCase } from '../../application/usecases/find-book-by-id.usecase';
 import { CreateBookDTO } from '../dto/create-book.dto';
 
-@Controller()
+@Controller('books/')
 export class BookController {
   constructor(
     private createBookUseCase: CreateBookUseCase,
@@ -25,7 +26,10 @@ export class BookController {
   }
 
   @Get(':id')
-  async findBookById(@Res() request, @Param('id') id: number): Promise<any> {
+  async findBookById(
+    @Res() request,
+    @Param('id', ParseIntPipe) id: number,
+  ): Promise<any> {
     const book = await this.findBookByIdUseCase.execute(id);
     return request.status(HttpStatus.OK).json(book);
   }

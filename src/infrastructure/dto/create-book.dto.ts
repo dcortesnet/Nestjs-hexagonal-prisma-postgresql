@@ -1,7 +1,7 @@
-import { Book } from '../../domain/models/book';
+import { BookModel } from '../../domain/models/book.model';
 import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class CreateBookDTO implements Book {
+export class CreateBookDTO implements BookModel {
   @IsString()
   @IsNotEmpty()
   isbn: string;

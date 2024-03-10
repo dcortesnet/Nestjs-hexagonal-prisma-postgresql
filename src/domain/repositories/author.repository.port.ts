@@ -1,6 +1,6 @@
-import { Author } from '../models/author';
+import { AuthorModel } from '../models/author.model';
 
 export interface AuthorRepositoryPort {
-  createAuthor(author: Author): Promise<Author>;
-  findAuthorById(authorId: number): Promise<Author>;
+  createAuthor(author: AuthorModel): Promise<AuthorModel>;
+  findAuthorById(authorId: number): Promise<AuthorModel>;
 }

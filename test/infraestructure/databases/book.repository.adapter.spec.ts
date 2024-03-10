@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaClient } from '@prisma/client';
 import { BookRepositoryAdapter } from '../../../src/infrastructure/databases/book.repository.adapter';
-import { Book } from '../../../src/domain/models/book';
+import { BookModel } from '../../../src/domain/models/book.model';
 
 describe('BookRepositoryAdapter', () => {
   let bookRepository: BookRepositoryAdapter;
@@ -29,14 +29,14 @@ describe('BookRepositoryAdapter', () => {
 
   describe('createBook', () => {
     it('should create a new book', async () => {
-      const book: Book = {
+      const book: BookModel = {
         isbn: '1234567890',
         name: 'Sample Book',
         cantPages: 100,
         authorId: 1,
       };
 
-      const createdBook: Book = {
+      const createdBook: BookModel = {
         id: 1,
         isbn: '1234567890',
         name: 'Sample Book',
@@ -63,7 +63,7 @@ describe('BookRepositoryAdapter', () => {
     it('should find a book by ID', async () => {
       const bookId = 1;
 
-      const foundBook: Book = {
+      const foundBook: BookModel = {
         id: 1,
         isbn: '1234567890',
         name: 'Sample Book',

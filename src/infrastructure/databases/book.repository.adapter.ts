@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Book } from '../../domain/models/book';
+import { BookModel } from '../../domain/models/book.model';
 import { BookRepositoryPort } from '../../domain/repositories/book.repository.port';
 import { PrismaClient } from '@prisma/client';
 
@@ -7,7 +7,7 @@ import { PrismaClient } from '@prisma/client';
 export class BookRepositoryAdapter implements BookRepositoryPort {
   constructor(private prisma: PrismaClient) {}
 
-  async createBook(book: Book): Promise<Book> {
+  async createBook(book: BookModel): Promise<BookModel> {
     return await this.prisma.book.create({
       data: {
         isbn: book.isbn,
@@ -18,7 +18,7 @@ export class BookRepositoryAdapter implements BookRepositoryPort {
     });
   }
 
-  async findBookById(bookId: number): Promise<Book> {
+  async findBookById(bookId: number): Promise<BookModel> {
     return await this.prisma.book.findUnique({
       where: { id: bookId },
     });

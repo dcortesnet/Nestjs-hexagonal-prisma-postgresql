@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Author } from '../../domain/models/author';
+import { AuthorModel } from '../../domain/models/author.model';
 import { AuthorRepositoryPort } from '../../domain/repositories/author.repository.port';
 
 @Injectable()
@@ -8,7 +8,7 @@ export class CreateAuthorUseCase {
     @Inject('AuthorRepository') private authorRepository: AuthorRepositoryPort,
   ) {}
 
-  async execute(author: Author): Promise<Author> {
+  async execute(author: AuthorModel): Promise<AuthorModel> {
     const createdAuthor = await this.authorRepository.createAuthor(author);
     return createdAuthor;
   }

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FindAuthorByIdUseCase } from '../../../src/application/usecases/find-author-by-id.usecase';
 import { AuthorRepositoryPort } from '../../../src/domain/repositories/author.repository.port';
-import { Author } from '../../../src/domain/models/author';
+import { AuthorModel } from '../../../src/domain/models/author.model';
 
 describe('FindAuthorByIdUseCase', () => {
   let findAuthorByIdUseCase: FindAuthorByIdUseCase;
@@ -27,7 +27,7 @@ describe('FindAuthorByIdUseCase', () => {
   describe('execute', () => {
     it('should find an author by id', async () => {
       const authorId = 1;
-      const author: Author = {
+      const author: AuthorModel = {
         id: authorId,
         name: 'John Doe',
         age: 30,

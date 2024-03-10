@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { CreateBookUseCase } from '../../../src/application/usecases/create-book.usecase';
 import { BookRepositoryPort } from '../../../src/domain/repositories/book.repository.port';
-import { Book } from '../../../src/domain/models/book';
+import { BookModel } from '../../../src/domain/models/book.model';
 
 describe('CreateBookUseCase', () => {
   let createBookUseCase: CreateBookUseCase;
@@ -26,14 +26,14 @@ describe('CreateBookUseCase', () => {
 
   describe('execute', () => {
     it('should create a new book', async () => {
-      const book: Book = {
+      const book: BookModel = {
         isbn: '1234567890',
         name: 'Sample Book',
         authorId: 1,
         cantPages: 100,
       };
 
-      const createdBook: Book = {
+      const createdBook: BookModel = {
         id: 1,
         isbn: '1234567890',
         name: 'Sample Book',

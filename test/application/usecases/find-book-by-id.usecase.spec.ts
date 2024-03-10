@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FindBookByIdUseCase } from '../../../src/application/usecases/find-book-by-id.usecase';
 import { BookRepositoryPort } from '../../../src/domain/repositories/book.repository.port';
-import { Book } from '../../../src/domain/models/book';
+import { BookModel } from '../../../src/domain/models/book.model';
 
 describe('FindBookByIdUseCase', () => {
   let findBookByIdUseCase: FindBookByIdUseCase;
@@ -27,7 +27,7 @@ describe('FindBookByIdUseCase', () => {
   describe('execute', () => {
     it('should find a book by id', async () => {
       const bookId = 1;
-      const book: Book = {
+      const book: BookModel = {
         id: 1,
         name: 'Sample Book',
         authorId: 1,

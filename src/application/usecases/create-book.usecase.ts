@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { Book } from '../../domain/models/book';
+import { BookModel } from '../../domain/models/book.model';
 import { BookRepositoryPort } from '../../domain/repositories/book.repository.port';
 
 @Injectable()
@@ -8,7 +8,7 @@ export class CreateBookUseCase {
     @Inject('BookRepository') private bookRepository: BookRepositoryPort,
   ) {}
 
-  async execute(book: Book): Promise<Book> {
+  async execute(book: BookModel): Promise<BookModel> {
     const createdBook = await this.bookRepository.createBook(book);
     return createdBook;
   }

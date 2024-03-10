@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaClient } from '@prisma/client';
 import { AuthorRepositoryAdapter } from '../../../src/infrastructure/databases/author.repository.adapter';
-import { Author } from '../../../src/domain/models/author';
+import { AuthorModel } from '../../../src/domain/models/author.model';
 
 describe('AuthorRepositoryAdapter', () => {
   let repository: AuthorRepositoryAdapter;
@@ -29,12 +29,12 @@ describe('AuthorRepositoryAdapter', () => {
 
   describe('createAuthor', () => {
     it('should create a new author', async () => {
-      const author: Author = {
+      const author: AuthorModel = {
         name: 'Diego',
         age: 25,
       };
 
-      const createdAuthor: Author = {
+      const createdAuthor: AuthorModel = {
         id: 1,
         name: 'Diego',
         age: 25,
@@ -58,7 +58,7 @@ describe('AuthorRepositoryAdapter', () => {
     it('should find an author by ID', async () => {
       const authorId = 1;
 
-      const author: Author = {
+      const author: AuthorModel = {
         id: 1,
         name: 'Diego',
         age: 25,

@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { AuthorRepositoryPort } from '../../domain/repositories/author.repository.port';
-import { Author } from '../../domain/models/author';
+import { AuthorModel } from '../../domain/models/author.model';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class AuthorRepositoryAdapter implements AuthorRepositoryPort {
   constructor(private prisma: PrismaClient) {}
 
-  async createAuthor(author: Author): Promise<Author> {
+  async createAuthor(author: AuthorModel): Promise<AuthorModel> {
     return await this.prisma.author.create({
       data: {
         name: author.name,
@@ -16,7 +16,7 @@ export class AuthorRepositoryAdapter implements AuthorRepositoryPort {
     });
   }
 
-  async findAuthorById(authorId: number): Promise<Author> {
+  async findAuthorById(authorId: number): Promise<AuthorModel> {
     return await this.prisma.author.findUnique({
       where: { id: authorId },
     });

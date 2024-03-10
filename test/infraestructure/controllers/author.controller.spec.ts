@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { HttpStatus } from '@nestjs/common';
-import { AuthorController } from './author.controller';
-import { CreateAuthorUseCase } from '../../application/usecases/create-author.usecase';
-import { FindAuthorByIdUseCase } from '../../application/usecases/find-author-by-id.usecase';
-import { CreateAuthorDTO } from '../dto/create-author.dto';
+import { AuthorController } from '../../../src/infrastructure/controllers/author.controller';
+import { CreateAuthorUseCase } from '../../../src/application/usecases/create-author.usecase';
+import { FindAuthorByIdUseCase } from '../../../src/application/usecases/find-author-by-id.usecase';
+import { CreateAuthorDTO } from '../../../src/infrastructure/dto/create-author.dto';
 
 describe('AuthorController', () => {
   let controller: AuthorController;

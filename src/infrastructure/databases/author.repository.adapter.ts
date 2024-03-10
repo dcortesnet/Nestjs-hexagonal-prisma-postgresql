@@ -16,7 +16,7 @@ export class AuthorRepositoryAdapter implements AuthorRepositoryPort {
     });
   }
 
-  async findyAuthorById(authorId: number): Promise<Author> {
+  async findAuthorById(authorId: number): Promise<Author> {
     return await this.prisma.author.findUnique({
       where: { id: authorId },
     });

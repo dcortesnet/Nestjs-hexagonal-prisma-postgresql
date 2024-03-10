@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { HttpStatus } from '@nestjs/common';
-import { BookController } from './book.controller';
-import { CreateBookUseCase } from '../../application/usecases/create-book.usecase';
-import { FindBookByIdUseCase } from '../../application/usecases/find-book-by-id.usecase';
-import { CreateBookDTO } from '../dto/create-book.dto';
+import { BookController } from '../../../src/infrastructure/controllers/book.controller';
+import { CreateBookUseCase } from '../../../src/application/usecases/create-book.usecase';
+import { FindBookByIdUseCase } from '../../../src/application/usecases/find-book-by-id.usecase';
+import { CreateBookDTO } from '../../../src/infrastructure/dto/create-book.dto';
 
 describe('BookController', () => {
   let controller: BookController;

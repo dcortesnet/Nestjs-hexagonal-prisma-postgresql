@@ -73,7 +73,7 @@ describe('BookRepositoryAdapter', () => {
 
       (prismaClient.book.findUnique as jest.Mock).mockResolvedValue(foundBook);
 
-      const result = await bookRepository.findyBookById(bookId);
+      const result = await bookRepository.findBookById(bookId);
 
       expect(prismaClient.book.findUnique).toHaveBeenCalledWith({
         where: { id: 1 },

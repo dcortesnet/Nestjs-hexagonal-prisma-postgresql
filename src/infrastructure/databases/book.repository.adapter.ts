@@ -18,7 +18,7 @@ export class BookRepositoryAdapter implements BookRepositoryPort {
     });
   }
 
-  async findyBookById(bookId: number): Promise<Book> {
+  async findBookById(bookId: number): Promise<Book> {
     return await this.prisma.book.findUnique({
       where: { id: bookId },
     });

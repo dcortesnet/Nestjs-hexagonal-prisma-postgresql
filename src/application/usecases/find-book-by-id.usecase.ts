@@ -9,7 +9,7 @@ export class FindBookByIdUseCase {
   ) {}
 
   async execute(bookId: number): Promise<Book> {
-    const book = await this.bookRepository.findyBookById(bookId);
+    const book = await this.bookRepository.findBookById(bookId);
     return book;
   }
 }

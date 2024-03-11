@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaClient } from '@prisma/client';
-import { BookRepositoryAdapter } from '../../../src/infrastructure/databases/book.repository.adapter';
+import { BookRepositoryAdapter } from '../../../src/infrastructure/repositories/book.repository.adapter';
 import { BookModel } from '../../../src/domain/models/book.model';
 
 describe('BookRepositoryAdapter', () => {

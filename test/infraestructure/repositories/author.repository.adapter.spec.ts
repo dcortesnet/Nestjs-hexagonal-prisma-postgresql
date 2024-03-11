@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaClient } from '@prisma/client';
-import { AuthorRepositoryAdapter } from '../../../src/infrastructure/databases/author.repository.adapter';
+import { AuthorRepositoryAdapter } from '../../../src/infrastructure/repositories/author.repository.adapter';
 import { AuthorModel } from '../../../src/domain/models/author.model';
 
 describe('AuthorRepositoryAdapter', () => {

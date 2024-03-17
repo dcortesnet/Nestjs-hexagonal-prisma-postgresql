@@ -41,6 +41,13 @@ Synchronize Prisma schema with the database schema. It also performs a migration
 ```
 $ npx prisma migrate dev --name test
 ```
+## Apply existing migration 
+
+If you already have the migration generated in your folder and you want to apply the migration to your database or another, use the following command.
+
+```
+$ npx prisma migrate deploy
+```
 
 ## Team
 

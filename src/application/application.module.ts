@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { CreateAuthorUseCase } from './usecases/create-author.usecase';
-import { AuthorRepositoryAdapter } from '../infrastructure/repositories/author.repository.adapter';
+import { PrismaAuthorRepositoryAdapter } from '../infrastructure/repositories/prisma.author.repository.adapter';
 import { PrismaClient } from '@prisma/client';
 import { CreateBookUseCase } from './usecases/create-book.usecase';
-import { BookRepositoryAdapter } from '../infrastructure/repositories/book.repository.adapter';
+import { PrismaBookRepositoryAdapter } from '../infrastructure/repositories/prisma.book.repository.adapter';
 import { FindAuthorByIdUseCase } from './usecases/find-author-by-id.usecase';
 import { FindBookByIdUseCase } from './usecases/find-book-by-id.usecase';
 
@@ -20,11 +20,11 @@ import { FindBookByIdUseCase } from './usecases/find-book-by-id.usecase';
     FindBookByIdUseCase,
     {
       provide: 'AuthorRepository',
-      useClass: AuthorRepositoryAdapter,
+      useClass: PrismaAuthorRepositoryAdapter,
     },
     {
       provide: 'BookRepository',
-      useClass: BookRepositoryAdapter,
+      useClass: PrismaBookRepositoryAdapter,
     },
   ],
   exports: [

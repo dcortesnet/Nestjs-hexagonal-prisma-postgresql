@@ -4,7 +4,7 @@ import { BookRepositoryPort } from '../../domain/repositories/book.repository.po
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
-export class BookRepositoryAdapter implements BookRepositoryPort {
+export class PrismaBookRepositoryAdapter implements BookRepositoryPort {
   constructor(private prisma: PrismaClient) {}
 
   async createBook(book: BookModel): Promise<BookModel> {

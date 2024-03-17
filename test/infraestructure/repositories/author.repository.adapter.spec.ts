@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaClient } from '@prisma/client';
-import { AuthorRepositoryAdapter } from '../../../src/infrastructure/repositories/author.repository.adapter';
+import { PrismaAuthorRepositoryAdapter } from '../../../src/infrastructure/repositories/prisma.author.repository.adapter';
 import { AuthorModel } from '../../../src/domain/models/author.model';
 
 describe('AuthorRepositoryAdapter', () => {
-  let repository: AuthorRepositoryAdapter;
+  let repository: PrismaAuthorRepositoryAdapter;
   let prismaClient: PrismaClient;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        AuthorRepositoryAdapter,
+        PrismaAuthorRepositoryAdapter,
         {
           provide: PrismaClient,
           useValue: {
@@ -23,7 +23,7 @@ describe('AuthorRepositoryAdapter', () => {
       ],
     }).compile();
 
-    repository = module.get<AuthorRepositoryAdapter>(AuthorRepositoryAdapter);
+    repository = module.get<PrismaAuthorRepositoryAdapter>(PrismaAuthorRepositoryAdapter);
     prismaClient = module.get<PrismaClient>(PrismaClient);
   });
 

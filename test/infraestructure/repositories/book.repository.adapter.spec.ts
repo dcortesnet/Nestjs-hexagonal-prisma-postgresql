@@ -1,16 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaClient } from '@prisma/client';
-import { BookRepositoryAdapter } from '../../../src/infrastructure/repositories/book.repository.adapter';
+import { PrismaBookRepositoryAdapter } from '../../../src/infrastructure/repositories/prisma.book.repository.adapter';
 import { BookModel } from '../../../src/domain/models/book.model';
 
 describe('BookRepositoryAdapter', () => {
-  let bookRepository: BookRepositoryAdapter;
+  let bookRepository: PrismaBookRepositoryAdapter;
   let prismaClient: PrismaClient;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        BookRepositoryAdapter,
+        PrismaBookRepositoryAdapter,
         {
           provide: PrismaClient,
           useValue: {
@@ -23,7 +23,7 @@ describe('BookRepositoryAdapter', () => {
       ],
     }).compile();
 
-    bookRepository = module.get<BookRepositoryAdapter>(BookRepositoryAdapter);
+    bookRepository = module.get<PrismaBookRepositoryAdapter>(PrismaBookRepositoryAdapter);
     prismaClient = module.get<PrismaClient>(PrismaClient);
   });
 

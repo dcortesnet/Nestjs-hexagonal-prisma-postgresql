@@ -4,7 +4,7 @@ import { AuthorModel } from '../../domain/models/author.model';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
-export class AuthorRepositoryAdapter implements AuthorRepositoryPort {
+export class PrismaAuthorRepositoryAdapter implements AuthorRepositoryPort {
   constructor(private prisma: PrismaClient) {}
 
   async createAuthor(author: AuthorModel): Promise<AuthorModel> {
